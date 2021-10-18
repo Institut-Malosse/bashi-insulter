@@ -23,9 +23,10 @@ noob@bender:~ $ sp aux
 -bash: sp: command not found
 ```
 
-# Compatibility
-* Bash v4 and newer
-* Zsh
+# Compatibility / Dependencies
+* Bash or Zsh
+* wget
+
 
 # Installation
 
