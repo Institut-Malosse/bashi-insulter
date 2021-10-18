@@ -29,7 +29,7 @@ noob@bender:~ $ sp aux
 
 # Installation
 
-    sudo wget -O /etc/bash.command-not-found https://github.com/Institut-Malosse/Main/blob/main/Dev/bash-insulter/src/bash.command-not-found
+    sudo wget -O /etc/bash.command-not-found https://github.com/Institut-Malosse/bashi-insulter/blob/main/src/bash.command-not-found
 
 * Bash : Then source the file automatically for new logins by adding the following to `/etc/bash.bashrc` or any of the other locations where you can configure your shell automatically during login:
 ```
