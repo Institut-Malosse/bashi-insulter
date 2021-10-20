@@ -6,17 +6,17 @@ Change insults as needed :)
 French insults support is currently in dev.
 
 ```bash
-noob@bender:~ $ sl
+noob@barkshi:~ $ sl
 
   Y u no speak computer???
 
 -bash: sl: command not found
-noob@bender:~ $ gti status
+noob@barkshi:~ $ gti status
 
   This is why nobody likes you.
 
 -bash: gti: command not found
-noob@bender:~ $ sp aux
+noob@barkshi:~ $ sp aux
 
   Go outside.
 
