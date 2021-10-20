@@ -3,6 +3,8 @@ Randomly insults the user when typing wrong command.
 
 Change insults as needed :)
 
+/!\ Bash is currently not working, please use ZSH !
+
 French insults support is currently in dev.
 
 ```bash
@@ -24,7 +26,7 @@ noob@bender:~ $ sp aux
 ```
 
 # Compatibility / Dependencies
-* Bash or Zsh
+* Bash (currently not working) or Zsh
 * wget
 
 
