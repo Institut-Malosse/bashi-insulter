@@ -3,8 +3,8 @@ print_message () {
     local messages
     local message
 
-    messages=(
-        "Boooo!"
+    messages=
+    (   "Boooo!"
         "Don't you know anything?"
         "RTFM!"
         "Haha, n00b!"
