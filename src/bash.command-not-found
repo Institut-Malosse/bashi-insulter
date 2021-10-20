@@ -3,13 +3,8 @@ print_message () {
     local messages
     local message
 
-<<<<<<< HEAD
     messages=
     (   "Boooo!"
-=======
-    messages=(
-        "Booo!"
->>>>>>> main
         "Don't you know anything?"
         "RTFM!"
         "Haha, n00b!"
@@ -68,8 +63,7 @@ print_message () {
         "You're proof that god has a sense of humor."
         "Keep trying, someday you'll do something intelligent!"
         "If shit was music, you'd be an orchestra."
-        "How many times do I have to flush before you go away?"
-    )
+        "How many times do I have to flush before you go away?" )
 
     # If CMD_NOT_FOUND_MSGS array is populated use those messages instead of the defaults
     [[ -n ${CMD_NOT_FOUND_MSGS} ]] && messages=( "${CMD_NOT_FOUND_MSGS[@]}" )
@@ -84,7 +78,7 @@ print_message () {
     # little bit less.
     if [[ $((${RANDOM} % 2)) -lt 1 ]]; then
         message=${messages[${RANDOM} % ${#messages[@]}]}
-        printf "\n  %s\n\n" "$(tput bold)$(tput setaf 1)${message}$(tput sgr0)" >&2
+        printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf 1)${message}$(tput sgr0)" >&2
     fi
 }
 
@@ -115,7 +109,7 @@ if function_exists command_not_found_handler; then
     fi
 else
     orig_command_not_found_handler () {
-        printf "zsh: command not found: %s\n" "$1" >&2
+        printf "zsh: command not found: %s\\n" "$1" >&2
         return 127
     }
 fi
@@ -135,7 +129,7 @@ if function_exists command_not_found_handle; then
     fi
 else
     orig_command_not_found_handle () {
-        printf "%s: %s: command not found\n" "$0" "$1" >&2
+        printf "%s: %s: command not found\\n" "$0" "$1" >&2
         return 127
     }
 fi
