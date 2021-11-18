@@ -1,9 +1,10 @@
 print_message () {
 
-    local messages
-    local message
+    local injure
+    local insulte
 
-    messages=(   
+
+    injure=(   
         "Boooo!"
         "Don't you know anything?"
         "RTFM!"
@@ -66,19 +67,94 @@ print_message () {
         "How many times do I have to flush before you go away?" 
         )
 
-    # If CMD_NOT_FOUND_MSGS array is populated use those messages instead of the defaults
-    [[ -n ${CMD_NOT_FOUND_MSGS} ]] && messages=( "${CMD_NOT_FOUND_MSGS[@]}" )
+    insulte=(
+        "Bon, je vais prendre les devants et taper rm -rf / pour toi."
+        "Pourquoi tu es si stupide !?"
+        "Je pense sérieusement à me rm -rf / moi même."
+        "Et c'est pour cette raison que tu ne peux voir tes enfants qu'un jour par mois."
+        "Et c'est pour ça que personne ne t'aime"
+        "Est-ce que au moins tu essaies de faire des efforts ?"
+        "Essaye d'utiliser ta cervelle la prochaine fois."
+        "Mon clavier n'est pas un jouet !"
+        "Tape des commandes, pas ce charabia !"
+        "T'es vraiment aussi stupide ou tu le fais exprès ?"
+        "T'as perdu ton cerveau quand t'étais petit ?"
+        "Le cerveau ne fait pas tout, pour ton cas il ne fait rien"
+        "Je ne sais pas ce qui te rend aussi stupide mais ça marche bien."
+        "Tu n'est pas aussi mauvaise que les gens disent, non, tu est bien pire"
+        "Deux maux ne font pas un bien, prends tes parents comme exemple."
+        "Vous avez dû naître sur une autoroute, car c'est là que la plupart des accidents se produisent."
+        "Si l'ignorance est le bonheur, alors tu es la personne la plus heureuse au monde."
+        "Tu es la preuve que Dieu a le sens de l'humour."
+        "Si tu continues d'essayer, un jour peut-être tu feras quelque chose d'intelligent."
+        "Si la connerie était une musique, tu serais un orchestre."
+        "Nope"
+        "Hooooo, le naze"
+        "Est-ce que tu sais faire une chose au moins !?"
+        "Mais lis le putain de manuel !!"
+        "Haha n00b"
+        "Wow, on peut pas faire pire ..."
+        "Pathetique."
+        "Celle là, c'est la pire !"
+        "Ahah n00b !"
+        "Lol."
+        "T'es nul"
+        "Non mais ... s'il te plait, fait un effort"
+        "S'il te plait, désinstalle moi."
+        "Et l'oscar de la nullité est pour .... ${USER} !"
+        "ERROR_UTILISATEUR_INCOMPETENT"
+        "L'incompétence est une forme de compétence"
+        "Nul."
+        "Continue, tu y arriveras peut-être un jour."
+        "Mais qu'est ce que tu fait ..."
+        "Allez ! tu vas y arriver !"
+        "Bien essayé."
+        "Et si, pour une fois, tu tapais un vrai commande ?"
+        "Et si je te disais que tu pouvais aussi taper des vrais commandes !?"
+        "Toi pas parler ordinateur ??"
+        "Ceci n'est pas WinBloat"
+        "Tu devrais laisser la ligne de commandes faire ça toute seule."
+        "S'il te plait, éloigne toi du clavier."
+        "Code erreur : 1D10T"
+        "Pro tip : Tape une commande valide"
+        "Tu devrais aller dehors."
+        "Ceci n'est pas un moteur de recherche !"
+        "(╯°□°）╯︵ ┻━┻"
+        "¯\\_(ツ)_/¯"
+        "Meme Gift saurait faire !"
+        )
 
-    # If CMD_NOT_FOUND_MSGS_APPEND array is populated append those to the existing messages
-    [[ -n ${CMD_NOT_FOUND_MSGS_APPEND} ]] && messages+=( "${CMD_NOT_FOUND_MSGS_APPEND[@]}" )
+    if [ $LANG = "fr_FR.UTF-8" ]
+    then
 
-    # Seed RANDOM with an integer of some length
-    RANDOM=$(od -vAn -N4 -tu < /dev/urandom)
+        # If CMD_NOT_FOUND_MSGS array is populated use those messages instead of the defaults
+        [[ -n ${CMD_NOT_FOUND_MSGS} ]] && insulte=( "${CMD_NOT_FOUND_MSGS[@]}" )
 
-    # Print a randomly selected message, but only about half the time to annoy the user a
-    # little bit less.
-    message=${messages[${RANDOM} % ${#messages[@]}]}
-    printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf 1)${message}$(tput sgr0)" >&2
+        # If CMD_NOT_FOUND_MSGS_APPEND array is populated append those to the existing messages
+        [[ -n ${CMD_NOT_FOUND_MSGS_APPEND} ]] && insulte+=( "${CMD_NOT_FOUND_MSGS_APPEND[@]}" )
+
+        # Seed RANDOM with an integer of some length
+        
+        message=${insulte[$(od -A n -N 2 -t u2 /dev/urandom) % ${#insulte[@]} + 1]}
+        printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf 1)${message}$(tput sgr0)" >&2
+
+
+    else
+
+        # If CMD_NOT_FOUND_MSGS array is populated use those messages instead of the defaults
+        [[ -n ${CMD_NOT_FOUND_MSGS} ]] && injure=( "${CMD_NOT_FOUND_MSGS[@]}" )
+
+        # If CMD_NOT_FOUND_MSGS_APPEND array is populated append those to the existing messages
+        [[ -n ${CMD_NOT_FOUND_MSGS_APPEND} ]] && injure+=( "${CMD_NOT_FOUND_MSGS_APPEND[@]}" )
+
+        # Seed RANDOM with an integer of some length
+
+        message=${insulte[$(od -A n -N 2 -t u2 /dev/urandom) % ${#insulte[@]} + 1]}
+        printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf 1)${message}$(tput sgr0)" >&2
+
+    fi
+
+
 
 }
 
@@ -120,7 +196,7 @@ command_not_found_handler () {
 }
 
 
-#
+#You must have been born on a highway because that's where most accidents happen
 # Bash
 #
 if function_exists command_not_found_handle; then
@@ -138,3 +214,4 @@ command_not_found_handle () {
     print_message
     orig_command_not_found_handle "$@"
 }
+
