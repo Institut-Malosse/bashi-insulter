@@ -3,7 +3,7 @@ Randomly insults the user when typing wrong command.
 
 Change insults as needed :)
 
-French insults support is currently in dev.
+French insults is now available, it's based on your $LANG value. Set it to fr_FR.UTF-8 for french insult.
 
 ```bash
 noob@barkshi:~ $ sl
